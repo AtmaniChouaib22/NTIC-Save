@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   View,
   Text,
@@ -13,11 +13,11 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import { handleSignUp } from "../../utils/authentHandlers";
-import ErrorBox from "../components/ErrorBox";
+} from "react-native"
+import { Ionicons } from "@expo/vector-icons"
+import { useRouter } from "expo-router"
+import { handleSignUp } from "../../../utils/authentHandlers"
+import ErrorBox from "../../components/ErrorBox"
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -28,18 +28,18 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
     role: "user",
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any>(null);
-  const router = useRouter();
+  })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<any>(null)
+  const router = useRouter()
 
   const updateFormField = (field: string, value: string) => {
     setFormData((prevState) => ({
       ...prevState,
       [field]: value,
-    }));
-    if (error) setError(null);
-  };
+    }))
+    if (error) setError(null)
+  }
 
   const clearFormData = () => {
     setFormData({
@@ -50,32 +50,32 @@ export default function SignUp() {
       password: "",
       confirmPassword: "",
       role: "user",
-    });
-  };
+    })
+  }
 
   const onSubmit = async () => {
     try {
-      setLoading(true);
-      setError(null);
+      setLoading(true)
+      setError(null)
 
-      const result = await handleSignUp({ formData });
+      const result = await handleSignUp({ formData })
 
       if (result.success === false) {
-        setLoading(false);
-        setError(result);
-        console.log("result", result);
-        return;
+        setLoading(false)
+        setError(result)
+        console.log("result", result)
+        return
       }
-      clearFormData();
-      console.log("result", result);
-      router.replace("/home");
+      clearFormData()
+      console.log("result", result)
+      router.replace("/home")
     } catch (err) {
-      console.log(err);
-      setError(err);
+      console.log(err)
+      setError(err)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -101,7 +101,7 @@ export default function SignUp() {
             {/* Header Section */}
             <View style={styles.header}>
               <Image
-                source={require("../../assets/images/NTIC.jpg")}
+                source={require("../../../assets/images/NTIC.jpg")}
                 style={styles.logo}
                 resizeMode="contain"
               />
@@ -280,7 +280,7 @@ export default function SignUp() {
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -404,4 +404,4 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#212529",
   },
-});
+})

@@ -16,8 +16,8 @@ import {
 } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { useRouter } from "expo-router"
-import { handleSignIn } from "../../utils/authentHandlers"
-import ErrorBox from "../components/ErrorBox"
+import { handleSignIn } from "../../../utils/authentHandlers"
+import ErrorBox from "../../components/ErrorBox"
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false)
@@ -56,7 +56,7 @@ export default function SignIn() {
       }
       setLoading(false)
       clearLogFormData()
-      router.replace("/home")
+      router.replace("/(app)/(tabs)/home")
     } catch (error) {
       setError(error)
       setLoading(false)
@@ -88,7 +88,7 @@ export default function SignIn() {
             {/* Header Section */}
             <View style={styles.header}>
               <Image
-                source={require("../../assets/images/NTIC.jpg")}
+                source={require("../../../assets/images/NTIC.jpg")}
                 style={styles.logo}
                 resizeMode="contain"
               />
@@ -98,7 +98,6 @@ export default function SignIn() {
 
             {/* Form Section */}
             <View style={styles.formContainer}>
-              
               {error && <ErrorBox error={error} />}
 
               {/* Email */}
@@ -173,7 +172,7 @@ export default function SignIn() {
                   Don't have an account?{" "}
                   <Text
                     style={styles.link}
-                    onPress={() => router.push("/sign-up")}
+                    onPress={() => router.push("/(auth)/sign-up")}
                   >
                     Sign Up
                   </Text>

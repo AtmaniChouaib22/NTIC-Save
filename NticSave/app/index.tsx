@@ -146,14 +146,14 @@ export default function Index() {
       <View className="px-8 pb-12">
         <TouchableOpacity
           className="bg-customRed py-4 rounded-xl mb-4 items-center"
-          onPress={() => router.navigate("/sign-in")}
+          onPress={() => router.navigate("/(auth)/sign-in")}
         >
           <Text className="text-white font-semibold text-lg">Sign In</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           className="border border-customRed py-4 rounded-xl items-center"
-          onPress={() => router.navigate("/sign-up")}
+          onPress={() => router.navigate("/(auth)/sign-up")}
         >
           <Text className="text-customRed font-semibold text-lg">
             Create Account
