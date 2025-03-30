@@ -1,5 +1,19 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 todos.txt
+
+# Android/IntelliJ
+android/
+ios/
+
+# iOS
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+
+# Expo
+.expo/
+dist/
+web-build/
 # dependencies
 node_modules/
 
